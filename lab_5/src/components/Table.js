@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Filter from './Filter.js'
 import TableBody from './TableBody.js'
 import TableHead from './TableHead.js'
@@ -10,16 +10,20 @@ import TableHead from './TableHead.js'
 */
 
 const Table = (props) => {
-    const [dataTable, setDataTable] = useState(props.data);
-    const n = Math.ceil(dataTable.length / props.amountRows);
-    const updateDataTable = (value) => {
-        const n_new = Math.ceil(value.length / props.amountRows);
-        setDataTable(value);
-        setActivePage(String(n_new));
-    };
-	  //количество страниц разбиения таблицы
-     
-    const [activePage, setActivePage] = useState(String(n));
+    const n = Math.ceil(props.data.length / props.amountRows);
+    const [activePage, setActivePage] = useState("1");
+
+    useEffect(() => {
+        if (n === 0) {
+            setActivePage("1");
+            return;
+        }
+
+        if (Number(activePage) > n) {
+            setActivePage("1");
+        }
+    }, [activePage, n]);
+
     const changeActive = (event) => {
         setActivePage(event.target.innerHTML);
     };
@@ -35,10 +39,10 @@ const Table = (props) => {
     return( 
       <>
         <h4>Фильтры</h4>
-        <Filter filtering={ updateDataTable } data={ dataTable } fullData={ props.data }/>
+        <Filter filtering={ props.onFilterChange } data={ props.data } fullData={ props.fullData }/>
         <table>
-            <TableHead head={ Object.keys(props.data[0]) } />
-            <TableBody body={ dataTable } amountRows={props.isPagination ?  props.amountRows : props.data.length} numPage={ activePage }/>
+            <TableHead head={ Object.keys(props.fullData[0]) } />
+            <TableBody body={ props.data } amountRows={props.isPagination ?  props.amountRows : props.data.length} numPage={ activePage }/>
         </table>
 
         {props.isPagination ? <div>{pages}</div> : null}
