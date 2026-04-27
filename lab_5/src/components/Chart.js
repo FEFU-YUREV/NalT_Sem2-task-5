@@ -16,6 +16,9 @@ const Chart = (props) => {
 
 			if (!formOy.some(Boolean)) {
 				setIsOyError(true);
+				setOx(formOx);
+				setOy(formOy);
+				setChartType(formChartType);
 				return;
 			}
 

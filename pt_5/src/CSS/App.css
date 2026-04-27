@@ -1,0 +1,212 @@
+.App {
+  padding: 10px;
+  text-align: left;
+}
+
+.App h3,
+.App h4 {
+  margin: 10px 0;
+}
+
+.controls {
+  margin-bottom: 10px;
+}
+
+.control-section {
+  margin-bottom: 8px;
+}
+
+.control-form {
+  display: block;
+}
+
+.control-form p {
+  margin: 6px 0;
+}
+
+.control-form label,
+.control-section summary {
+  margin-right: 6px;
+}
+
+.control-section summary {
+  cursor: pointer;
+  font-weight: normal;
+}
+
+.control-form input,
+.control-form select,
+.control-form button {
+  width: auto;
+  box-sizing: border-box;
+  padding: 2px 4px;
+  font: inherit;
+}
+
+.form-buttons {
+  display: block;
+}
+
+.form-buttons button {
+  width: auto;
+  margin-right: 8px;
+}
+
+.range-line,
+.sort-line {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.range-line label {
+  min-width: 150px;
+}
+
+.range-line input {
+  width: 160px;
+}
+
+.sort-line select {
+  min-width: 180px;
+}
+
+.sort-line input {
+  width: auto;
+}
+
+.table-wrapper {
+  overflow-x: visible;
+}
+
+table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid black;
+  padding: 6px;
+}
+
+th {
+  font-weight: bold;
+  background-color: #a4a4a4;
+}
+
+td,
+th {
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  vertical-align: top;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #ecebeb;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #a4a4a4;
+}
+
+.show {
+  display: table-row;
+}
+
+.hide {
+  display: none;
+}
+
+.empty-data {
+  padding: 24px;
+  text-align: center;
+}
+
+.pages {
+  margin-top: 16px;
+}
+
+.page-number {
+  margin: 0 6px;
+  cursor: pointer;
+}
+
+.page-number.active {
+  font-weight: bold;
+  color: rgb(45, 45, 255);
+}
+
+.page-number:hover {
+  color: rgb(0, 139, 39);
+  text-decoration: underline;
+}
+
+svg {
+  width: 800px;
+  height: 400px;
+}
+
+svg path, line {
+  fill: none;
+  stroke: black;
+  width: 1px;
+}
+
+svg text {
+  font: 8px Verdana;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (max-width: 700px) {
+  .App {
+    padding: 6px;
+  }
+
+  .range-line label,
+  .range-line input,
+  .sort-line select {
+    min-width: 0;
+    width: auto;
+  }
+
+  table, th, td {
+    padding: 4px;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
